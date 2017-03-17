@@ -1,0 +1,35 @@
+{
+  "name": "play-pause-button",
+  "version": "1.0.0",
+  "description": "Play/Pause Button",
+  "authors": [
+    "Wouter Vroege"
+  ],
+  "keywords": [
+    "web-components",
+    "web-component",
+    "polymer",
+    "play",
+    "pause",
+    "button",
+    "media",
+    "controls",
+    "toggle",
+  ],
+  "main": "play-pause-button.html",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/woutervroege/play-pause-button.git"
+  },
+  "license": "LICENSE.txt",
+  "homepage": "https://github.com/woutervroege/play-pause-button",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.8.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.0.0",
+    "web-component-tester": "^4.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
+  }
+}

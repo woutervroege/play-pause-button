@@ -1,0 +1,122 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<!--
+`play-pause-button`
+Play/Pause Button Element
+
+@demo demo/index.html 
+-->
+
+<dom-module id="play-pause-button">
+  <template>
+    <style>
+
+      :host {
+        display: flex;
+        width: 100px;
+        height: 100px;
+
+        --play-pause-icon-transition: 0.2s all ease-out;
+
+        --play-pause-button: {
+          flex: 1;
+          transition: transform .1s ease-out;
+          position: relative;
+          width: 100%;
+          height: 100%;
+          border: 0;
+          background-color: transparent;
+          outline: none;
+        }
+
+        --play-pause-button--hidden: {
+          opacity: 0;
+          transform: translate(-50%, -50%) scale(.5);
+        }
+
+        --play-pause-button--zoomed: {
+          transform: scale(1.1);
+          border-radius: 50%;
+        }
+
+        --play-pause-button--hover: {
+          @apply --play-pause-button--zoomed;
+        }
+
+        --play-pause-button--focus: {
+          @apply --play-pause-button--zoomed;
+        }
+      }
+
+      button {
+        @apply --play-pause-button;
+      }
+
+      button:hover {
+        @apply --play-pause-button--hover;
+      }
+
+      button:focus {
+        @apply --play-pause-button--focus;
+      }
+
+      svg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 50%;
+        left: 50%;
+        cursor: pointer;
+        transform: translate(-50%, -50%);
+        transform-origin: 50% 50%;
+        transition: var(--play-pause-icon-transition);
+        fill: var(--play-pause-button-icon-fill, #000000);
+      }
+
+      :host([playing]) #play-button {
+        @apply --play-pause-button--hidden;
+      }
+
+      :host(:not([playing])) #pause-button {
+        @apply --play-pause-button--hidden;
+      }
+
+    </style>
+
+    <button>
+      <svg id="play-button" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="10,0 10,100 90,50"/>
+      </svg>
+      <svg id="pause-button" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <rect x="15" y="0" width="25" height="100"/>
+        <rect x="55" y="0" width="25" height="100"/>
+      </svg>
+    </button>
+
+  </template>
+  <script>
+    Polymer({
+      
+      is: 'play-pause-button',
+      
+      properties: {
+        playing: {
+          type: Boolean,
+          value: false,
+          notify: true,
+          reflectToAttribute: true
+        }
+      },
+      
+      listeners: {
+        'tap': 'toggle'
+      },
+      
+      toggle: function() {
+        this.set('playing', !this.playing);
+      }
+      
+    })
+  </script>
+
+</dom-module>
