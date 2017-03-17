@@ -14,7 +14,7 @@
     "button",
     "media",
     "controls",
-    "toggle",
+    "toggle"
   ],
   "main": "play-pause-button.html",
   "repository": {
